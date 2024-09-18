@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rock+Salt&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/958414e421.js" crossorigin="anonymous"></script>
+    <title>Implementasi Tabel untuk website Event</title>
+    <style>
+        body{
+            background-color: #261C1B;
+            font-family: 'Roboto Mono';
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }   
+
+        .logo{
+            display:flex;
+            justify-content: center;
+            font-size: 3em;
+            color:#FFB800;
+            font-family: 'Rock Salt';
+        }
+
+        .background-image{
+            background-image: url(https://cdnb.artstation.com/p/assets/images/images/063/443/493/large/liang-mei-4kred.jpg?1685541714);
+            width: 100%;
+            height: 100vh;
+            background-size: cover; 
+            background-position: center center; 
+            background-repeat: no-repeat; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            
+        }
+        
+        table{
+            justify-content: center;
+            align-items: center;
+            font-weight: 540;
+            border-collapse: collapse;
+        }
+        
+        .ticket-group {
+            transition: background-color 0.3s ease;
+        }
+
+        .ticket-group:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .first-ticket:hover {
+            background-color: #FFB800;
+        }
+
+        .second-ticket:hover {
+            background-color: #FC558E;
+        }
+
+        .third-ticket:hover {
+            background-color: #FB0045;
+        }
+
+        .fourth-ticket:hover {
+            background-color: #006FC1;
+        }
+
+        td{
+            min-width: 170px;
+            max-width: 500px;
+            padding:5px;
+        }
+        table tr{
+            height:50px;
+            text-align: center;
+        }
+        .ticket-container{
+            overflow-x: auto;
+        }
+        .ticket-desc{
+            color:rgba(255, 255, 255, 0.7);
+            text-align: left;
+            border-bottom: 1px solid black;
+        }
+        
+        .ticket-watermark{
+            text-align: right;
+            writing-mode: vertical-lr;
+            transform: rotate(-180deg);
+        }
+        
+        .first-ticket{
+            background-color: #FFB80070;
+        }
+        .second-ticket{
+            background-color: #FC558E70;
+        }
+        .third-ticket{
+            background-color: #FB004570;
+        }
+        .fourth-ticket{
+            background-color: #006FC170;
+        }
+        .ticket-date{
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        h1{
+            color:white;
+        }
+        .bocchi-hero{
+            position: relative;
+        }
+        .navbar{
+            position: absolute; 
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0); 
+            z-index: 1;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            color: #FFB800;
+            font-family: 'Rock Salt', cursive; /* Example custom font */
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFB800;
+        }
+
+        .navbar .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-buttons button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #FB0045;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .auth-buttons button:hover {
+            background-color: #FFB800;
+        }
+
+        .card {
+            background-color: #170F0D; /* The dark card background color */
+            color: white; /* Text color for contrast */
+            padding: 20px; /* Internal spacing */
+            border-radius: 10px; /* Rounded corners for a card-like look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
+            max-width: 400px; /* Set max-width for the card size */
+            margin: 20px auto; /* Center it on the page */
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .members .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./assets/kessoku-band-seeklogo.png" height="100px"alt="">
+        </div>
+        <div class="nav-links">
+            <a href="">Home</a>
+            <a href="">Events</a>
+            <a href="">Contacts</a>
+        </div>
+        <div class="auth-buttons">
+            <button>Login</button>
+            <button>Register</button>
+        </div>
+    </nav>
+    <div class="bocchi-hero">
+        <img src="./assets/1365588.jpeg" width="100%" alt="">
+    </div>
+    <div class="boring-text">
+        <h1 style="text-align: center;">Order Now!</h1>
+    </div>
+    <div class="background-image">
+        <div class="ticket-container">
+            <table>
+                <a href="./buynow.html">
+                    <tbody class="ticket-group first-ticket">
+                        <tr class="ticket">
+                            <td class="ticket-date" rowspan=2>23rd <br/> March</td>
+                            <td class="ticket-desc" colspan=2>Preorder</td>
+                        </tr>
+                        <tr class="ticket ticket-row">
+                            <td class="ticket-desc">Digidawdigidawdigidawdigidaw</td>
+                            <td class="ticket-watermark">bocchi.rocks</td>
+                        </tr>
+                    </tbody>
+                </a>
+                <tr style="height:10px"></tr>
+                <tbody class="ticket-group second-ticket">
+                    <tr class="ticket">
+                        <td class="ticket-date" rowspan=2>1st <br>April</td>
+                        <td class="ticket-desc" colspan=2>1st Batch</td>
+                    </tr>
+                    <tr class="ticket ticket-row">
+                        <td class="ticket-desc">Digidaw</td>
+                        <td class="ticket-watermark">aldeen.aja</td>
+                    </tr>
+                </tbody>
+                <tr style="height:10px"></tr>
+                <tbody class="ticket-group third-ticket">
+                    <tr class="ticket">
+                        <td class="ticket-date" rowspan=2>8th <br> April</td>
+                        <td class="ticket-desc" colspan=2>2nd Batch</td>
+                    </tr>
+                    <tr class="ticket ticket-row">
+                        <td class="ticket-desc">Digidaw</td>
+                        <td class="ticket-watermark">bocchi_online</td>
+                    </tr>
+                </tbody>
+                <tr style="height:10px"></tr>
+                <tbody class="ticket-group fourth-ticket">
+                    <tr class="ticket">
+                        <td class="ticket-date" rowspan=2>15th <br> April</td>
+                        <td class="ticket-desc" colspan=2>Last Batch</td>
+                    </tr>
+                    <tr class="ticket ticket-row">
+                        <td class="ticket-desc">Digidaw</td>
+                        <td class="ticket-watermark">btr_isosta</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="moreboring-text" style="text-align: center;">
+        <h1>Meet the Members</h1>
+    </div>
+    <div class="members">
+        <table class="members container">
+            <tr>
+                <td>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="./assets/21291904-removebg-preview.png" alt="">
+                        </div>
+                        <div class="card-title">Hitori Goto</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="./assets/21291907-removebg-preview.png" alt="">
+                        </div>
+                        <div class="card-title">Ryo Yamada</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="./assets/21291908-removebg-preview.png" alt="">
+                        </div>
+                        <div class="card-title">
+                            Ikuyo Kita
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="./assets/21291914-removebg-preview.png" alt="">
+                        </div>
+                        <div class="card-title">
+                            Nijika Ijichi   
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
