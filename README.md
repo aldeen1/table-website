@@ -5,3 +5,5 @@ This is a website which uses the table tag instead of a display attribute like g
 The table tag in this website is used for the ticket and the members element. For the ticket tag, ive used the tbody element to separate the tickets, this makes it so that you can use the :hover pseudocode to select each individual ticket. The other section is pretty easy to stylize so ill only be putting this just incase i forgot how to select a single group of columns and rows using the table tag.
 
 ![image](https://github.com/user-attachments/assets/cf300477-2585-4961-ad09-1597618afbe8)
+![image](https://github.com/user-attachments/assets/49a7eb78-8e86-4c17-9662-b87fdf009b8b)
+
